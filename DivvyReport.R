@@ -3,7 +3,7 @@ library(extrafont)
 
 
 
-divvy2019_2024summary <- read.csv("C:/Users/arcannon/OneDrive - Burns & McDonnell/FE PE School/Rstudio2022/ILVIS/DivvyData/summarydata/divvy2019_2024summary.csv")
+divvy2019_2024summary <- read.csv("divvy2019_2024summary.csv")
 
 
 divsumshort <- divvy2019_2024summary %>% group_by(month,monthname,year) %>% summarise(rides=sum(rides))
@@ -60,9 +60,9 @@ plot3 <- ggplot(data=filter(divvy2019_2024summary %>% group_by(rideable_type),mo
 
 plot3
 
-ggsave(plot=plot1, "C:/Users/arcannon/OneDrive - Burns & McDonnell/FE PE School/Rstudio2022/ILVIS/DivvyData/plots/divvyannual.jpeg",height=6,width=8)
-ggsave(plot=plot2, "C:/Users/arcannon/OneDrive - Burns & McDonnell/FE PE School/Rstudio2022/ILVIS/DivvyData/plots/divvyannualcumulative.jpeg",height=6,width=8)
-ggsave(plot=plot3, "C:/Users/arcannon/OneDrive - Burns & McDonnell/FE PE School/Rstudio2022/ILVIS/DivvyData/plots/divvymonthly.jpeg",height=6,width=8)
+ggsave(plot=plot1, "divvyannual.jpeg",height=6,width=8)
+ggsave(plot=plot2, "divvyannualcumulative.jpeg",height=6,width=8)
+ggsave(plot=plot3, "divvymonthly.jpeg",height=6,width=8)
 
 
 
@@ -83,6 +83,7 @@ annualsum <- ggplot(data=filter(divvy2019_2024summary,year>20), aes(y=rides,x=ye
         plot.subtitle = element_text(hjust = 0.5),panel.grid.major.x = element_blank(), panel.grid.minor = element_blank())+
   theme(text=element_text(family="Arial"))
 
+
 annualsum
 
-ggsave(plot=annualsum, "C:/Users/arcannon/OneDrive - Burns & McDonnell/FE PE School/Rstudio2022/ILVIS/DivvyData/plots/divvyannualsum.jpeg",height=6,width=8)
+ggsave(plot=annualsum, "divvyannualsum.jpeg",height=6,width=8)
